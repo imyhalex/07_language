@@ -2,14 +2,14 @@ package edu.nyu.cs.assignment7;
 
 import java.util.ArrayList;
 
+
 public class Word extends OrderedThing implements SequentiallyOrdered{
     
     private ArrayList<Character> characters;
-    private int position;
 
     public Word(String word, int position) {
+        super(position);
         this.characters = new ArrayList<>();
-        this.position = position;
         for (int i = 0; i < word.length(); i++) {
             characters.add(new Character(word.charAt(i), i));
         }
@@ -35,5 +35,30 @@ public class Word extends OrderedThing implements SequentiallyOrdered{
     @Override
     public int getPosition() {
         return this.position;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || obj.getClass() != this.getClass()) return false;
+        
+        Word otherWord = (Word) obj;
+    
+        if (this.characters.size() != otherWord.characters.size()) return false;
+    
+        for (int i = 0; i < this.characters.size(); i++) {
+            if (!this.characters.get(i).equals(otherWord.characters.get(i))) return false;
+        }
+    
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Character c : characters) {
+            sb.append(c.toString());
+        }
+        return sb.toString().trim();
     }
 }

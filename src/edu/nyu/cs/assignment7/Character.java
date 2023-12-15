@@ -3,11 +3,10 @@ package edu.nyu.cs.assignment7;
 public class Character extends OrderedThing{
     
     private char character;
-    private int position;
 
     public Character(char character, int position) {
+        super(position);
         this.character = character;
-        this.position = position;
     }
 
     @Override
@@ -17,11 +16,11 @@ public class Character extends OrderedThing{
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Character) {
-            Character other = (Character) obj;
-            return this.character == other.character;
-        }
-        return false;
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        
+        Character otherCharacter = (Character) obj;
+        return this.character == otherCharacter.character;
     }
 
     @Override
