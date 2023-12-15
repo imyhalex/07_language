@@ -9,5 +9,10 @@ public abstract class OrderedThing {
 
     public abstract int getPosition();
 
-    public abstract boolean equals(Object obj);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || this.getClass() != obj.getClass()) return false;
+        OrderedThing other = (OrderedThing) obj;
+        return this.position == other.position;
+    }
 } 

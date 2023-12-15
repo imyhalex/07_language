@@ -39,20 +39,9 @@ public class Word extends OrderedThing implements SequentiallyOrdered{
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        
-        Word otherWord = (Word) obj;
-    
-        if (this.characters.size() != otherWord.characters.size()) return false;
-    
-        for (int i = 0; i < this.characters.size(); i++) {
-            if (!this.characters.get(i).equals(otherWord.characters.get(i))) {
-                return false;
-            }
-        }
-    
-        return true;
+        if (!super.equals(obj)) return false;
+        Word otheWord = (Word) obj;
+        return characters.equals(otheWord.characters);
     }
     @Override
     public String toString() {
