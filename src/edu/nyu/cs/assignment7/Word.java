@@ -40,8 +40,8 @@ public class Word extends OrderedThing implements SequentiallyOrdered{
     @Override
     public boolean equals(Object obj) {
         if (!super.equals(obj)) return false;
-        Word otheWord = (Word) obj;
-        return characters.equals(otheWord.characters);
+        Word otherWord = (Word) obj;
+        return characters.equals(otherWord.characters);
     }
     @Override
     public String toString() {
