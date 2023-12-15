@@ -42,9 +42,14 @@ public class Sentence implements SequentiallyOrdered{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (Word w : words) {
-            sb.append(w.toString()).append(" ");
+        for (int i = 0; i < words.size(); i++) {
+            sb.append(words.get(i).toString());
+            if (i < words.size() - 1) {
+                sb.append(" "); // Add space between words
+            }
         }
-        return sb.toString().trim();
+        // Append a period at the end of the sentence
+        sb.append(".");
+        return sb.toString();
     }
 }
